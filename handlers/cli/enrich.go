@@ -17,6 +17,7 @@ import (
 	"github.com/prskr/aucs/infrastructure/checker"
 	"github.com/prskr/aucs/infrastructure/checker/npm"
 	"github.com/prskr/aucs/infrastructure/checker/nuget"
+	"github.com/prskr/aucs/infrastructure/checker/pypi"
 )
 
 type EnrichCLiHandler struct {
@@ -137,6 +138,7 @@ func (h *EnrichCLiHandler) AfterApply() error {
 	h.Checkers.Register(
 		nuget.NewNugetChecker(h.heimdallClient("CheckLatestNugetVersion", retrier)),
 		npm.NewChecker(h.heimdallClient("CheckLatestNPMVersion", retrier)),
+		pypi.NewChecker(h.heimdallClient("CheckLatestPyPiVersion", retrier)),
 	)
 
 	return nil
