@@ -15,6 +15,7 @@ import (
 	"github.com/gojek/heimdall/v7/hystrix"
 	"github.com/prskr/aucs/core/ports"
 	"github.com/prskr/aucs/infrastructure/checker"
+	"github.com/prskr/aucs/infrastructure/checker/npm"
 	"github.com/prskr/aucs/infrastructure/checker/nuget"
 )
 
@@ -133,7 +134,10 @@ func (h *EnrichCLiHandler) AfterApply() error {
 	retrier := heimdall.NewRetrier(backoff)
 
 	h.Checkers = checker.NewRegistry(h.KV)
-	h.Checkers.Register(nuget.NewNugetChecker(h.heimdallClient("CheckLatestNugetVersion", retrier)))
+	h.Checkers.Register(
+		nuget.NewNugetChecker(h.heimdallClient("CheckLatestNugetVersion", retrier)),
+		npm.NewChecker(h.heimdallClient("CheckLatestNPMVersion", retrier)),
+	)
 
 	return nil
 }

@@ -23,8 +23,10 @@ type Registry struct {
 	CheckersByType map[string]ports.UpdateChecker
 }
 
-func (r *Registry) Register(checker ports.UpdateChecker) {
-	r.CheckersByType[checker.SupportedPackageType()] = checker
+func (r *Registry) Register(checkers ...ports.UpdateChecker) {
+	for _, c := range checkers {
+		r.CheckersByType[c.SupportedPackageType()] = c
+	}
 }
 
 func (r Registry) LatestVersionFor(ctx context.Context, packageUrl string) (*ports.PackageInfo, error) {

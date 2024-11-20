@@ -14,8 +14,8 @@ import (
 
 var _ ports.UpdateChecker = (*Checker)(nil)
 
-func NewNugetChecker(client *http.Client) *Checker {
-	return &Checker{Client: client}
+func NewNugetChecker(client *http.Client) Checker {
+	return Checker{Client: client}
 }
 
 type Checker struct {
@@ -23,13 +23,13 @@ type Checker struct {
 }
 
 // SupportedPackageType implements ports.UpdateChecker.
-func (c Checker) SupportedPackageType() string {
+func (Checker) SupportedPackageType() string {
 	return "nuget"
 }
 
 // LatestVersionFor implements ports.UpdateChecker.
 func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.PackageURL) (*ports.PackageInfo, error) {
-	var nugetResult NugetQueryResult
+	var nugetResult nugetQueryResult
 
 	err := requests.
 		URL("https://azuresearch-usnc.nuget.org/query").
@@ -71,12 +71,12 @@ func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.Pac
 	}, nil
 }
 
-type NugetQueryResult struct {
+type nugetQueryResult struct {
 	TotalHits int                `json:"totalHits"`
-	Packages  []NugetPackageInfo `json:"data"`
+	Packages  []nugetPackageInfo `json:"data"`
 }
 
-type NugetPackageInfo struct {
+type nugetPackageInfo struct {
 	Id      string `json:"id"`
 	Version string `json:"version"`
 	Title   string `json:"title"`
