@@ -7,6 +7,7 @@ import (
 
 	"github.com/carlmjohnson/requests"
 	"github.com/package-url/packageurl-go"
+
 	"github.com/prskr/aucs/core/ports"
 )
 
@@ -25,7 +26,7 @@ func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.Pac
 	var pypiResult pypiQueryResult
 
 	err := requests.
-		URL("https://pypi.python.org").
+		URL("https://pypi.org").
 		Path(path.Join("pypi", packageUrl.Name, "json")).
 		Client(c.Client).
 		ToJSON(&pypiResult).

@@ -1,14 +1,19 @@
 package pypi_test
 
 import (
-	"net/http"
+	_ "embed"
 	"testing"
 
-	packageurl "github.com/package-url/packageurl-go"
+	"github.com/package-url/packageurl-go"
+	"github.com/stretchr/testify/assert"
+
+	"github.com/prskr/aucs/core/ports"
 	"github.com/prskr/aucs/infrastructure/checker/pypi"
 	"github.com/prskr/aucs/internal/testx"
-	"github.com/stretchr/testify/assert"
 )
+
+//go:embed testdata/requests.json
+var requestsResponse []byte
 
 func TestChecker_LatestVersionFor(t *testing.T) {
 	t.Parallel()
@@ -16,15 +21,31 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 	type args struct {
 		packageUrl string
 	}
+	type fields struct {
+		clientConfig map[string][]byte
+	}
 	tests := []struct {
 		name    string
 		args    args
+		fields  fields
+		want    *ports.PackageInfo
 		wantErr bool
 	}{
 		{
 			name: "Outdated existing dependency",
 			args: args{
-				packageUrl: "pkg:pypi/pytest-httpbin@1.0.2",
+				packageUrl: "pkg:pypi/requests@2.29.0",
+			},
+			fields: fields{
+				clientConfig: map[string][]byte{
+					"https://pypi.org/pypi/requests/json": requestsResponse,
+				},
+			},
+			want: &ports.PackageInfo{
+				Name:           "requests",
+				CurrentVersion: "2.29.0",
+				LatestVersion:  "2.32.3",
+				PackageManager: "pypi",
 			},
 			wantErr: false,
 		},
@@ -33,7 +54,17 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			c := pypi.NewChecker(http.DefaultClient)
+
+			responseRules := make([]testx.ResponseRule, 0, len(tt.fields.clientConfig))
+			for rawUrl, resp := range tt.fields.clientConfig {
+				respRule, err := testx.NewSimpleUrlRule(rawUrl, resp)
+				if !assert.NoError(t, err) {
+					return
+				}
+				responseRules = append(responseRules, respRule)
+			}
+
+			c := pypi.NewChecker(testx.MockHTTPClient(responseRules...))
 			purl, err := packageurl.FromString(tt.args.packageUrl)
 			if !assert.NoError(t, err) {
 				return
@@ -45,8 +76,7 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 				return
 			}
 
-			t.Logf("%s, current: %s, latest: %s", got.Name, got.CurrentVersion, got.LatestVersion)
-			assert.NotEmpty(t, got.LatestVersion)
+			assert.Equal(t, tt.want, got)
 		})
 	}
 }

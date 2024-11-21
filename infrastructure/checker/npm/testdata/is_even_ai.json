@@ -1,0 +1,489 @@
+{
+    "_id": "is-even-ai",
+    "_rev": "6-7dfd088e7abce7584e341ecab770f9f8",
+    "name": "is-even-ai",
+    "dist-tags": {
+        "latest": "1.0.5"
+    },
+    "versions": {
+        "0.0.1": {
+            "name": "is-even-ai",
+            "version": "0.0.1",
+            "author": "",
+            "license": "ISC",
+            "_id": "is-even-ai@0.0.1",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "dist": {
+                "shasum": "7c7c61349c25c4a8da8877a7d00be75d612802d4",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-0.0.1.tgz",
+                "fileCount": 3,
+                "integrity": "sha512-BbzLofxS8wbtGRY4wuhg2MG+DyJE4rj/Ph48OOSLf+ozg5POsTMQfQlZCuLKcK/pIus+X5RL5FhM8Za1FeEoCQ==",
+                "signatures": [
+                    {
+                        "sig": "MEQCIElSdcx3DLP68LGmEJwYNMnYyWhM35VanDi1M4fR+grKAiA37FdOuBCpTHp8OhqGKqq7OXtthy2duGfF8c3krk/BBg==",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 289
+            },
+            "main": "index.js",
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "_npmVersion": "10.2.3",
+            "directories": {},
+            "_nodeVersion": "20.10.0",
+            "_hasShrinkwrap": false,
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_0.0.1_1710111104337_0.2455693662236449",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.0": {
+            "name": "is-even-ai",
+            "version": "1.0.0",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "url": "https://calvin.sh",
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh"
+            },
+            "license": "MIT",
+            "_id": "is-even-ai@1.0.0",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "dist": {
+                "shasum": "294330ff0371ade0bd49545c12c088793d266beb",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.0.tgz",
+                "fileCount": 11,
+                "integrity": "sha512-SQDMd037gnU2CkbgUubMUck5UuwTRGtIGbFqBbzpifWtgYiP2FGjDxI+A0gaaP9CWedLdXQDtmvkZRnWui31Ow==",
+                "signatures": [
+                    {
+                        "sig": "MEQCIHe5uHm+QaS/ljXwU79J9HxwM2oTvTGOKjj2pOXwGgz+AiA2NfP8ZYS1zJKXrEQ8uoXvlgNY6uvCRkBasQPMugJYNQ==",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 12846
+            },
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "types": "dist/index.d.ts",
+            "gitHead": "4e01a3babd318895850ebc92e747875c1eda87d3",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "repository": {
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git",
+                "type": "git"
+            },
+            "_npmVersion": "10.2.4",
+            "description": "Check if a number is even using AI",
+            "directories": {},
+            "_nodeVersion": "20.11.1",
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "_hasShrinkwrap": false,
+            "devDependencies": {
+                "vitest": "^1.3.1",
+                "typescript": "^5.4.2"
+            },
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_1.0.0_1710251387215_0.7395997396628953",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.1": {
+            "name": "is-even-ai",
+            "version": "1.0.1",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "url": "https://calvin.sh",
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh"
+            },
+            "license": "MIT",
+            "_id": "is-even-ai@1.0.1",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "dist": {
+                "shasum": "287f47b6e9472f983feb029cf99ee0a1ee4dca7b",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.1.tgz",
+                "fileCount": 11,
+                "integrity": "sha512-bzxvZLrLp9LHQj6YrdObCrSWUXnXTn7QiauJQ2kJRQrCufoHtYM6kZJ9dGwCtodBJWXOxnRVpn8czJCqSimfJQ==",
+                "signatures": [
+                    {
+                        "sig": "MEQCIGzGJRQ6RrQvyx0t9UBvLbbc3ZakWJTYvM40dblkc3g1AiAfuDo71qoIfPgyyRRiy2byjz/FPezWWp55yPnmg2DoZQ==",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 13332
+            },
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "types": "dist/index.d.ts",
+            "gitHead": "c5ca748d6a2779d5b7c4b74a5fdaccba508d569a",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "repository": {
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git",
+                "type": "git"
+            },
+            "_npmVersion": "10.2.4",
+            "description": "Check if a number is even using AI",
+            "directories": {},
+            "_nodeVersion": "20.11.1",
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "_hasShrinkwrap": false,
+            "devDependencies": {
+                "vitest": "^1.3.1",
+                "typescript": "^5.4.2"
+            },
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_1.0.1_1710279670461_0.3471037741957139",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.2": {
+            "name": "is-even-ai",
+            "version": "1.0.2",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "url": "https://calvin.sh",
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh"
+            },
+            "license": "MIT",
+            "_id": "is-even-ai@1.0.2",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "dist": {
+                "shasum": "aa7a66e35ffe8313724c02f4afcf4b09f57efe4f",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.2.tgz",
+                "fileCount": 9,
+                "integrity": "sha512-w+iHBynhSHphlfpmDile/0Y+DaUn++QPStKD3dTS5GFEmU9ghLyezIEQzXY8dS8YCOiAja/6sEl0SoJOWSeCnQ==",
+                "signatures": [
+                    {
+                        "sig": "MEUCIFMd66LTkQDjdkaCTVD+cGmarg315QF5xLlcAOLnzz35AiEAxJpDQCsg+CSmsA3EBTPMq8EJWSAC4OqMxf59wb6yr74=",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 10493
+            },
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "types": "dist/index.d.ts",
+            "gitHead": "d8c1f55b40e086b3129f923c00b1c537d5d34ccd",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "repository": {
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git",
+                "type": "git"
+            },
+            "_npmVersion": "10.9.0",
+            "description": "Check if a number is even using AI",
+            "directories": {},
+            "_nodeVersion": "20.16.0",
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "_hasShrinkwrap": false,
+            "devDependencies": {
+                "vitest": "^1.3.1",
+                "typescript": "^5.4.2"
+            },
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_1.0.2_1729305950466_0.05117562428121447",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.3": {
+            "name": "is-even-ai",
+            "version": "1.0.3",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "url": "https://calvin.sh",
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh"
+            },
+            "license": "MIT",
+            "_id": "is-even-ai@1.0.3",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "dist": {
+                "shasum": "403a39c05b4c668b4a0c935ce779c4cd89d552de",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.3.tgz",
+                "fileCount": 11,
+                "integrity": "sha512-muMCY/CCQcJtLiN6x5e3bU4KvT8CgNrhJDh7U23gxiuIyXkKYMcAtaAi6FwLI3vJcjgxQ4J/ctkXldlYHTqCBQ==",
+                "signatures": [
+                    {
+                        "sig": "MEUCIGpoGc6XA/yqqeC2rnCIE8ee5i+kzQ0A9JzumF6FH50gAiEAtvCrg/2E6OS2rGq4SyBLZSgQO7vjRtvD8NcB4dPTnQ8=",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 13435
+            },
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "types": "dist/index.d.ts",
+            "gitHead": "fb77a2174a2311afc2f673c8e97110ec9be984a5",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "repository": {
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git",
+                "type": "git"
+            },
+            "_npmVersion": "10.9.0",
+            "description": "Check if a number is even using AI",
+            "directories": {},
+            "_nodeVersion": "20.16.0",
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "_hasShrinkwrap": false,
+            "devDependencies": {
+                "vitest": "^1.3.1",
+                "typescript": "^5.4.2"
+            },
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_1.0.3_1729306104762_0.7279011396839559",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.4": {
+            "name": "is-even-ai",
+            "version": "1.0.4",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "url": "https://calvin.sh",
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh"
+            },
+            "license": "MIT",
+            "_id": "is-even-ai@1.0.4",
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "dist": {
+                "shasum": "a2ae5fbf500cffa8089ecd7f16336d2016eeacb5",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.4.tgz",
+                "fileCount": 11,
+                "integrity": "sha512-9/asizr2iPuxMTzLb8wGtbsm8dGv/0EPz7GP8P4+oMkS5OnarslTH4BKZ18Bu0SWdutdYLOGTRuD8zvDlCViIw==",
+                "signatures": [
+                    {
+                        "sig": "MEUCICwB/i4WxHtnMccpMmxi1pCVTV1uJdOLoywcZOGTnlX3AiEAilnkrQchB76s5WH6buW8ndd5I1wYPaxOoLxajsMi0lg=",
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+                    }
+                ],
+                "unpackedSize": 13435
+            },
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "types": "dist/index.d.ts",
+            "gitHead": "485e8390249faf64d52443ffd9f0af4ebd5eb095",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "repository": {
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git",
+                "type": "git"
+            },
+            "_npmVersion": "10.8.2",
+            "description": "Check if a number is even using AI",
+            "directories": {},
+            "_nodeVersion": "20.18.0",
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "_hasShrinkwrap": false,
+            "devDependencies": {
+                "vitest": "^1.3.1",
+                "typescript": "^5.4.2"
+            },
+            "_npmOperationalInternal": {
+                "tmp": "tmp/is-even-ai_1.0.4_1729306195503_0.6945068778155032",
+                "host": "s3://npm-registry-packages"
+            }
+        },
+        "1.0.5": {
+            "name": "is-even-ai",
+            "version": "1.0.5",
+            "description": "Check if a number is even with the power of ✨AI✨",
+            "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+            "author": {
+                "name": "Calvin Liang",
+                "email": "npm@calvin.sh",
+                "url": "https://calvin.sh"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/Calvin-LL/is-even-ai.git"
+            },
+            "bugs": {
+                "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+            },
+            "homepage": "https://github.com/Calvin-LL/is-even-ai",
+            "license": "MIT",
+            "types": "dist/index.d.ts",
+            "main": "dist/index.js",
+            "type": "commonjs",
+            "scripts": {
+                "test": "vitest",
+                "build": "tsc"
+            },
+            "dependencies": {
+                "openai": "^4.28.4"
+            },
+            "devDependencies": {
+                "typescript": "^5.4.2",
+                "vitest": "^2.1.3"
+            },
+            "_id": "is-even-ai@1.0.5",
+            "gitHead": "b00dbfcbb89a197ff8a476fb6ba44b23c5361443",
+            "_nodeVersion": "20.18.0",
+            "_npmVersion": "10.8.2",
+            "dist": {
+                "integrity": "sha512-Z14Jp0xFhOdf3TTl/sqBCIz6iYwmpnyyNWcP/Gg8ydE3XuuXY58B5ptFXLxFVBZZh3VphoABpWdvIBkUBtYP9w==",
+                "shasum": "88d61c9f8226ef781238e407aa9aa9cdb18f9403",
+                "tarball": "https://registry.npmjs.org/is-even-ai/-/is-even-ai-1.0.5.tgz",
+                "fileCount": 11,
+                "unpackedSize": 13306,
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEYCIQCAc5y1amFs7sX03DPByzwbFYSELnDfYQ8td9PBV6xmuwIhALmuZ4OOJPKdCB/lGP7SDPLUS8vDV8FZw0oZMwc9lvF3"
+                    }
+                ]
+            },
+            "_npmUser": {
+                "name": "calvin-l",
+                "email": "npm2@calvin.sh"
+            },
+            "directories": {},
+            "maintainers": [
+                {
+                    "name": "calvin-l",
+                    "email": "npm2@calvin.sh"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/is-even-ai_1.0.5_1729307120478_0.2014373854429934"
+            },
+            "_hasShrinkwrap": false
+        }
+    },
+    "time": {
+        "created": "2024-03-10T22:51:44.336Z",
+        "modified": "2024-10-19T03:05:20.866Z",
+        "0.0.1": "2024-03-10T22:51:44.488Z",
+        "1.0.0": "2024-03-12T13:49:47.363Z",
+        "1.0.1": "2024-03-12T21:41:10.653Z",
+        "1.0.2": "2024-10-19T02:45:50.639Z",
+        "1.0.3": "2024-10-19T02:48:24.979Z",
+        "1.0.4": "2024-10-19T02:49:55.710Z",
+        "1.0.5": "2024-10-19T03:05:20.686Z"
+    },
+    "bugs": {
+        "url": "https://github.com/Calvin-LL/is-even-ai/issues"
+    },
+    "author": {
+        "name": "Calvin Liang",
+        "email": "npm@calvin.sh",
+        "url": "https://calvin.sh"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/Calvin-LL/is-even-ai",
+    "keywords": ["AI", "is-even", "is-odd", "ChatGPT", "GPT", "OpenAI"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Calvin-LL/is-even-ai.git"
+    },
+    "description": "Check if a number is even with the power of ✨AI✨",
+    "maintainers": [
+        {
+            "name": "calvin-l",
+            "email": "npm2@calvin.sh"
+        }
+    ],
+    "readme": "# is-even-ai\n\n[![NPM Version](https://img.shields.io/npm/v/is-even-ai.svg?style=flat)](https://www.npmjs.com/package/is-even-ai)\n[![NPM License](https://img.shields.io/npm/l/is-even-ai.svg?style=flat)](https://github.com/Calvin-LL/is-even-ai/blob/main/LICENSE)\n[![NPM Downloads](https://img.shields.io/npm/dt/is-even-ai.svg?style=flat)](https://www.npmjs.com/package/is-even-ai)\n\nCheck if a number is even using the power of ✨AI✨.\n\nUses OpenAI's GPT-3.5-turbo model under the hood to determine if a number is even.\n\nFor all those who want to use AI in their product but don't know how.\n\nInspired by the famous [`is-even`](https://www.npmjs.com/package/is-even) npm package and [this tweet](https://twitter.com/erenbali/status/1766602689863950658).\n\n## Installation\n\n[This package is on npm.](https://www.npmjs.com/package/is-even-ai)\n\n```sh\nnpm install is-even-ai\n```\n\n## Usage\n\n```ts\nimport {\n  areEqual,\n  areNotEqual,\n  isEven,\n  isGreaterThan,\n  isLessThan,\n  isOdd,\n  setApiKey,\n} from \"is-even-ai\";\n\n// won't need this if you have OPENAI_API_KEY in your environment\nsetApiKey(\"YOUR_API_KEY\");\n\nconsole.log(await isEven(2)); // true\nconsole.log(await isEven(3)); // false\nconsole.log(await isOdd(4)); // false\nconsole.log(await isOdd(5)); // true\nconsole.log(await areEqual(6, 6)); // true\nconsole.log(await areEqual(6, 7)); // false\nconsole.log(await areNotEqual(6, 7)); // true\nconsole.log(await areNotEqual(7, 7)); // false\nconsole.log(await isGreaterThan(8, 7)); // true\nconsole.log(await isGreaterThan(7, 8)); // false\nconsole.log(await isLessThan(9, 8)); // false\nconsole.log(await isLessThan(8, 9)); // true\n```\n\nfor more advance usage like changing which model to use and setting the temperature, use `IsEvenAiOpenAi` instead\n\n```ts\nimport { IsEvenAiOpenAi } from \"is-even-ai\";\n\nconst isEvenAiOpenAi = new IsEvenAiOpenAi(\n  {\n    // won't need this if you have OPENAI_API_KEY in your environment\n    apiKey: \"YOUR_API_KEY\",\n  },\n  {\n    model: \"gpt-3.5-turbo\",\n    temperature: 0,\n  }\n);\n\nconsole.log(await isEvenAiOpenAi.isEven(2)); // true\nconsole.log(await isEvenAiOpenAi.isEven(3)); // false\nconsole.log(await isEvenAiOpenAi.isOdd(4)); // false\nconsole.log(await isEvenAiOpenAi.isOdd(5)); // true\nconsole.log(await isEvenAiOpenAi.areEqual(6, 6)); // true\nconsole.log(await isEvenAiOpenAi.areEqual(6, 7)); // false\nconsole.log(await isEvenAiOpenAi.areNotEqual(6, 7)); // true\nconsole.log(await isEvenAiOpenAi.areNotEqual(7, 7)); // false\nconsole.log(await isEvenAiOpenAi.isGreaterThan(8, 7)); // true\nconsole.log(await isEvenAiOpenAi.isGreaterThan(7, 8)); // false\nconsole.log(await isEvenAiOpenAi.isLessThan(8, 9)); // true\nconsole.log(await isEvenAiOpenAi.isLessThan(9, 8)); // false\n```\n\n## Supported AI platforms\n\nFeel free to make a PR to add more AI platforms.\n\n- [x] [OpenAI](https://openai.com) via `IsEvenAiOpenAi`\n\n## Supported methods\n\n- `isEven(n: number)`\n- `isOdd(n: number)`\n- `areEqual(a: number, b: number)`\n- `areNotEqual(a: number, b: number)`\n- `isGreaterThan(a: number, b: number)`\n- `isLessThan(a: number, b: number)`\n",
+    "readmeFilename": "README.md"
+}

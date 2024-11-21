@@ -136,7 +136,7 @@ func (h *EnrichCLiHandler) AfterApply() error {
 
 	h.Checkers = checker.NewRegistry(h.KV)
 	h.Checkers.Register(
-		nuget.NewNugetChecker(h.heimdallClient("CheckLatestNugetVersion", retrier)),
+		nuget.NewChecker(h.heimdallClient("CheckLatestNugetVersion", retrier)),
 		npm.NewChecker(h.heimdallClient("CheckLatestNPMVersion", retrier)),
 		pypi.NewChecker(h.heimdallClient("CheckLatestPyPiVersion", retrier)),
 	)

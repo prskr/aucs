@@ -14,7 +14,7 @@ import (
 
 var _ ports.UpdateChecker = (*Checker)(nil)
 
-func NewNugetChecker(client *http.Client) Checker {
+func NewChecker(client *http.Client) Checker {
 	return Checker{Client: client}
 }
 
@@ -37,7 +37,6 @@ func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.Pac
 		Client(c.Client).
 		ToJSON(&nugetResult).
 		Fetch(ctx)
-
 	if err != nil {
 		return nil, err
 	}

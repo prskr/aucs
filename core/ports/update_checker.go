@@ -15,6 +15,7 @@ var (
 )
 
 type PackageInfo struct {
+	Namespace      string
 	Name           string
 	LatestVersion  string
 	CurrentVersion string

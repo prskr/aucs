@@ -1,4 +1,4 @@
-package npm_test
+package nuget_test
 
 import (
 	_ "embed"
@@ -8,16 +8,12 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/prskr/aucs/core/ports"
-	"github.com/prskr/aucs/infrastructure/checker/npm"
+	"github.com/prskr/aucs/infrastructure/checker/nuget"
 	"github.com/prskr/aucs/internal/testx"
 )
 
-var (
-	//go:embed testdata/is_even_ai.json
-	isEvenAIResponse []byte
-	//go:embed testdata/ampproject_remapping.json
-	ampProjectRemappingResponse []byte
-)
+//go:embed testdata/BouncyCastle.Cryptography.json
+var bouncyCastleCryptographyResponse []byte
 
 func TestChecker_LatestVersionFor(t *testing.T) {
 	t.Parallel()
@@ -36,42 +32,26 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "Outdated, existing dependency - no namespace",
+			name: "Deprecated, existing dependency",
 			args: args{
-				packageUrl: "pkg:npm/is-even-ai@1.0.1",
+				packageUrl: "pkg:nuget/BouncyCastle.Cryptography@2.2.1",
 			},
 			fields: fields{
 				clientConfig: map[string][]byte{
-					"https://registry.npmjs.org/is-even-ai": isEvenAIResponse,
+					"https://azuresearch-usnc.nuget.org/query?q=packageid:BouncyCastle.Cryptography": bouncyCastleCryptographyResponse,
 				},
 			},
 			want: &ports.PackageInfo{
-				Name:           "is-even-ai",
-				CurrentVersion: "1.0.1",
-				LatestVersion:  "1.0.5",
-			},
-			wantErr: false,
-		},
-		{
-			name: "Outdated, existing dependency",
-			args: args{
-				packageUrl: "pkg:npm/%40ampproject/remapping@2.2.1",
-			},
-			fields: fields{
-				clientConfig: map[string][]byte{
-					"https://registry.npmjs.org/%40ampproject/remapping": ampProjectRemappingResponse,
-				},
-			},
-			want: &ports.PackageInfo{
-				Namespace:      "@ampproject",
-				Name:           "remapping",
+				Name:           "BouncyCastle.Cryptography",
 				CurrentVersion: "2.2.1",
-				LatestVersion:  "2.3.0",
+				LatestVersion:  "2.4.0",
+				PackageManager: "nuget",
 			},
 			wantErr: false,
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -84,7 +64,8 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 				responseRules = append(responseRules, respRule)
 			}
 
-			c := npm.NewChecker(testx.MockHTTPClient(responseRules...))
+			c := nuget.NewChecker(testx.MockHTTPClient(responseRules...))
+
 			purl, err := packageurl.FromString(tt.args.packageUrl)
 			if !assert.NoError(t, err) {
 				return
@@ -96,8 +77,7 @@ func TestChecker_LatestVersionFor(t *testing.T) {
 				return
 			}
 
-			t.Log(got.Name)
-			assert.NotEmpty(t, got.LatestVersion)
+			assert.Equal(t, tt.want, got)
 		})
 	}
 }

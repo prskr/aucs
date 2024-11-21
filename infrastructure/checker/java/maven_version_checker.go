@@ -53,9 +53,11 @@ func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.Pac
 	}
 
 	return &ports.PackageInfo{
-		Name:           fmt.Sprintf("%s:%s", metadataResult.GroupID, metadataResult.ArtifactID),
+		Namespace:      metadataResult.GroupID,
+		Name:           metadataResult.ArtifactID,
 		CurrentVersion: packageUrl.Version,
 		LatestVersion:  latestVersion,
+		PackageManager: "maven",
 	}, nil
 }
 

@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 	"path"
+	"strings"
 
 	"github.com/carlmjohnson/requests"
 	"github.com/package-url/packageurl-go"
@@ -36,17 +37,23 @@ func (c Checker) LatestVersionFor(ctx context.Context, packageUrl packageurl.Pac
 		Client(c.Client).
 		ToJSON(&registryResult).
 		Fetch(ctx)
-
 	if err != nil {
 		return nil, err
 	}
 
-	return &ports.PackageInfo{
+	info := ports.PackageInfo{
 		Name:           registryResult.Name,
 		LatestVersion:  registryResult.DistTags.Latest,
 		CurrentVersion: packageUrl.Version,
 		PackageManager: "npm",
-	}, nil
+	}
+
+	if idx := strings.Index(registryResult.Name, "/"); idx >= 0 {
+		info.Namespace = registryResult.Name[:idx]
+		info.Name = registryResult.Name[idx:]
+	}
+
+	return &info, nil
 }
 
 type npmRegistryQueryResult struct {

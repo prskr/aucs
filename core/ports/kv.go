@@ -5,9 +5,7 @@ import (
 	"errors"
 )
 
-var (
-	ErrNoKVEntryForKey = errors.New("no entry found")
-)
+var ErrNoKVEntryForKey = errors.New("no entry found")
 
 type KeyValueReader interface {
 	Get(ctx context.Context, key []byte) ([]byte, error)

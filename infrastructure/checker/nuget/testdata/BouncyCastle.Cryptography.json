@@ -1,0 +1,85 @@
+{
+    "@context": {
+        "@vocab": "http://schema.nuget.org/schema#",
+        "@base": "https://api.nuget.org/v3/registration5-semver1/"
+    },
+    "totalHits": 1,
+    "data": [
+        {
+            "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/index.json",
+            "@type": "Package",
+            "registration": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/index.json",
+            "id": "BouncyCastle.Cryptography",
+            "version": "2.4.0",
+            "description": "BouncyCastle.NET is a popular cryptography library for .NET",
+            "summary": "",
+            "title": "BouncyCastle.NET Cryptography",
+            "iconUrl": "https://api.nuget.org/v3-flatcontainer/bouncycastle.cryptography/2.4.0/icon",
+            "licenseUrl": "https://www.nuget.org/packages/BouncyCastle.Cryptography/2.4.0/license",
+            "projectUrl": "https://www.bouncycastle.org/stable/nuget/csharp/website",
+            "tags": [
+                "bouncycastle",
+                "cryptography",
+                "dtls",
+                "encryption",
+                "open-source",
+                "openpgp",
+                "post-quantum",
+                "security",
+                "tls"
+            ],
+            "authors": ["Legion of the Bouncy Castle Inc."],
+            "owners": ["LegionOfTheBouncyCastle"],
+            "totalDownloads": 62325509,
+            "verified": true,
+            "packageTypes": [
+                {
+                    "name": "Dependency"
+                }
+            ],
+            "versions": [
+                {
+                    "version": "2.0.0",
+                    "downloads": 2152345,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.0.0.json"
+                },
+                {
+                    "version": "2.1.0",
+                    "downloads": 2690,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.1.0.json"
+                },
+                {
+                    "version": "2.1.1",
+                    "downloads": 5709402,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.1.1.json"
+                },
+                {
+                    "version": "2.2.0",
+                    "downloads": 85072,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.2.0.json"
+                },
+                {
+                    "version": "2.2.1",
+                    "downloads": 32077463,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.2.1.json"
+                },
+                {
+                    "version": "2.3.0",
+                    "downloads": 5904774,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.3.0.json"
+                },
+                {
+                    "version": "2.3.1",
+                    "downloads": 6417723,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.3.1.json"
+                },
+                {
+                    "version": "2.4.0",
+                    "downloads": 9957821,
+                    "@id": "https://api.nuget.org/v3/registration5-semver1/bouncycastle.cryptography/2.4.0.json"
+                }
+            ],
+            "vulnerabilities": []
+        }
+    ]
+}

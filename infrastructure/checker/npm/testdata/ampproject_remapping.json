@@ -1,0 +1,65 @@
+{
+  "_id": "@ampproject/remapping",
+  "_rev": "38-18909af46f4ebf19c2bbc5f15b709591",
+  "name": "@ampproject/remapping",
+  "dist-tags": {
+    "latest": "2.3.0"
+  },
+  "time": {
+    "created": "2019-08-08T17:52:34.963Z",
+    "0.1.0": "2019-08-08T17:52:35.249Z",
+    "modified": "2024-03-01T09:10:39.951Z",
+    "0.2.0": "2020-01-29T01:35:22.956Z",
+    "0.3.0": "2020-06-13T09:17:15.752Z",
+    "1.0.0": "2020-12-19T04:25:05.723Z",
+    "1.0.1": "2021-01-15T21:43:04.773Z",
+    "1.0.2": "2021-12-01T02:58:32.506Z",
+    "1.1.0": "2022-01-22T11:53:14.764Z",
+    "1.1.1": "2022-01-23T08:20:06.577Z",
+    "2.0.0": "2022-01-27T04:19:59.480Z",
+    "2.0.1": "2022-01-29T06:49:10.337Z",
+    "2.0.2": "2022-02-03T05:46:19.601Z",
+    "2.0.3": "2022-02-05T05:40:36.464Z",
+    "2.0.4": "2022-02-06T06:59:32.302Z",
+    "2.1.0": "2022-02-07T07:12:34.233Z",
+    "2.1.1": "2022-02-11T08:13:31.269Z",
+    "2.1.2": "2022-02-16T09:25:08.517Z",
+    "2.2.0": "2022-04-27T03:51:13.056Z",
+    "2.2.1": "2023-04-07T02:43:13.129Z",
+    "2.3.0": "2024-03-01T09:10:39.024Z"
+  },
+  "maintainers": [
+    {
+      "name": "ampproject-admin",
+      "email": "admin@ampproject.org"
+    },
+    {
+      "name": "jridgewell",
+      "email": "justin+npm@ridgewell.name"
+    }
+  ],
+  "description": "Remap sequential sourcemaps through transformations to point at the original source code",
+  "homepage": "https://github.com/ampproject/remapping#readme",
+  "keywords": [
+    "source",
+    "map",
+    "remap"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ampproject/remapping.git"
+  },
+  "author": {
+    "name": "Justin Ridgewell",
+    "email": "jridgewell@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ampproject/remapping/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @ampproject/remapping\n\n> Remap sequential sourcemaps through transformations to point at the original source code\n\nRemapping allows you to take the sourcemaps generated through transforming your code and \"remap\"\nthem to the original source locations. Think \"my minified code, transformed with babel and bundled\nwith webpack\", all pointing to the correct location in your original source code.\n\nWith remapping, none of your source code transformations need to be aware of the input's sourcemap,\nthey only need to generate an output sourcemap. This greatly simplifies building custom\ntransformations (think a find-and-replace).\n\n## Installation\n\n```sh\nnpm install @ampproject/remapping\n```\n\n## Usage\n\n```typescript\nfunction remapping(\n  map: SourceMap | SourceMap[],\n  loader: (file: string, ctx: LoaderContext) => (SourceMap | null | undefined),\n  options?: { excludeContent: boolean, decodedMappings: boolean }\n): SourceMap;\n\n// LoaderContext gives the loader the importing sourcemap, tree depth, the ability to override the\n// \"source\" location (where child sources are resolved relative to, or the location of original\n// source), and the ability to override the \"content\" of an original source for inclusion in the\n// output sourcemap.\ntype LoaderContext = {\n readonly importer: string;\n readonly depth: number;\n source: string;\n content: string | null | undefined;\n}\n```\n\n`remapping` takes the final output sourcemap, and a `loader` function. For every source file pointer\nin the sourcemap, the `loader` will be called with the resolved path. If the path itself represents\na transformed file (it has a sourcmap associated with it), then the `loader` should return that\nsourcemap. If not, the path will be treated as an original, untransformed source code.\n\n```js\n// Babel transformed \"helloworld.js\" into \"transformed.js\"\nconst transformedMap = JSON.stringify({\n  file: 'transformed.js',\n  // 1st column of 2nd line of output file translates into the 1st source\n  // file, line 3, column 2\n  mappings: ';CAEE',\n  sources: ['helloworld.js'],\n  version: 3,\n});\n\n// Uglify minified \"transformed.js\" into \"transformed.min.js\"\nconst minifiedTransformedMap = JSON.stringify({\n  file: 'transformed.min.js',\n  // 0th column of 1st line of output file translates into the 1st source\n  // file, line 2, column 1.\n  mappings: 'AACC',\n  names: [],\n  sources: ['transformed.js'],\n  version: 3,\n});\n\nconst remapped = remapping(\n  minifiedTransformedMap,\n  (file, ctx) => {\n\n    // The \"transformed.js\" file is an transformed file.\n    if (file === 'transformed.js') {\n      // The root importer is empty.\n      console.assert(ctx.importer === '');\n      // The depth in the sourcemap tree we're currently loading.\n      // The root `minifiedTransformedMap` is depth 0, and its source children are depth 1, etc.\n      console.assert(ctx.depth === 1);\n\n      return transformedMap;\n    }\n\n    // Loader will be called to load transformedMap's source file pointers as well.\n    console.assert(file === 'helloworld.js');\n    // `transformed.js`'s sourcemap points into `helloworld.js`.\n    console.assert(ctx.importer === 'transformed.js');\n    // This is a source child of `transformed`, which is a source child of `minifiedTransformedMap`.\n    console.assert(ctx.depth === 2);\n    return null;\n  }\n);\n\nconsole.log(remapped);\n// {\n//   file: 'transpiled.min.js',\n//   mappings: 'AAEE',\n//   sources: ['helloworld.js'],\n//   version: 3,\n// };\n```\n\nIn this example, `loader` will be called twice:\n\n1. `\"transformed.js\"`, the first source file pointer in the `minifiedTransformedMap`. We return the\n   associated sourcemap for it (its a transformed file, after all) so that sourcemap locations can\n   be traced through it into the source files it represents.\n2. `\"helloworld.js\"`, our original, unmodified source code. This file does not have a sourcemap, so\n   we return `null`.\n\nThe `remapped` sourcemap now points from `transformed.min.js` into locations in `helloworld.js`. If\nyou were to read the `mappings`, it says \"0th column of the first line output line points to the 1st\ncolumn of the 2nd line of the file `helloworld.js`\".\n\n### Multiple transformations of a file\n\nAs a convenience, if you have multiple single-source transformations of a file, you may pass an\narray of sourcemap files in the order of most-recent transformation sourcemap first. Note that this\nchanges the `importer` and `depth` of each call to our loader. So our above example could have been\nwritten as:\n\n```js\nconst remapped = remapping(\n  [minifiedTransformedMap, transformedMap],\n  () => null\n);\n\nconsole.log(remapped);\n// {\n//   file: 'transpiled.min.js',\n//   mappings: 'AAEE',\n//   sources: ['helloworld.js'],\n//   version: 3,\n// };\n```\n\n### Advanced control of the loading graph\n\n#### `source`\n\nThe `source` property can overridden to any value to change the location of the current load. Eg,\nfor an original source file, it allows us to change the location to the original source regardless\nof what the sourcemap source entry says. And for transformed files, it allows us to change the\nrelative resolving location for child sources of the loaded sourcemap.\n\n```js\nconst remapped = remapping(\n  minifiedTransformedMap,\n  (file, ctx) => {\n\n    if (file === 'transformed.js') {\n      // We pretend the transformed.js file actually exists in the 'src/' directory. When the nested\n      // source files are loaded, they will now be relative to `src/`.\n      ctx.source = 'src/transformed.js';\n      return transformedMap;\n    }\n\n    console.assert(file === 'src/helloworld.js');\n    // We could futher change the source of this original file, eg, to be inside a nested directory\n    // itself. This will be reflected in the remapped sourcemap.\n    ctx.source = 'src/nested/transformed.js';\n    return null;\n  }\n);\n\nconsole.log(remapped);\n// {\n//   …,\n//   sources: ['src/nested/helloworld.js'],\n// };\n```\n\n\n#### `content`\n\nThe `content` property can be overridden when we encounter an original source file. Eg, this allows\nyou to manually provide the source content of the original file regardless of whether the\n`sourcesContent` field is present in the parent sourcemap. It can also be set to `null` to remove\nthe source content.\n\n```js\nconst remapped = remapping(\n  minifiedTransformedMap,\n  (file, ctx) => {\n\n    if (file === 'transformed.js') {\n      // transformedMap does not include a `sourcesContent` field, so usually the remapped sourcemap\n      // would not include any `sourcesContent` values.\n      return transformedMap;\n    }\n\n    console.assert(file === 'helloworld.js');\n    // We can read the file to provide the source content.\n    ctx.content = fs.readFileSync(file, 'utf8');\n    return null;\n  }\n);\n\nconsole.log(remapped);\n// {\n//   …,\n//   sourcesContent: [\n//     'console.log(\"Hello world!\")',\n//   ],\n// };\n```\n\n### Options\n\n#### excludeContent\n\nBy default, `excludeContent` is `false`. Passing `{ excludeContent: true }` will exclude the\n`sourcesContent` field from the returned sourcemap. This is mainly useful when you want to reduce\nthe size out the sourcemap.\n\n#### decodedMappings\n\nBy default, `decodedMappings` is `false`. Passing `{ decodedMappings: true }` will leave the\n`mappings` field in a [decoded state](https://github.com/rich-harris/sourcemap-codec) instead of\nencoding into a VLQ string.\n",
+  "readmeFilename": "README.md",
+  "users": {
+    "flumpus-dev": true
+  }
+}
