@@ -39,8 +39,6 @@ jobs:
       - name: Init go
         run: |
           go mod download
-          go mod download -modfile tools/go.mod
-          go generate -x ./...
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
