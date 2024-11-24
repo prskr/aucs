@@ -13,7 +13,7 @@ require (
 	github.com/dgraph-io/badger/v4 v4.4.0
 	github.com/gojek/heimdall/v7 v7.0.3
 	github.com/package-url/packageurl-go v0.1.3
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
