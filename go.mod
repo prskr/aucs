@@ -10,10 +10,10 @@ require (
 	github.com/adrg/xdg v0.5.3
 	github.com/alecthomas/kong v1.4.0
 	github.com/carlmjohnson/requests v0.24.2
-	github.com/dgraph-io/badger/v4 v4.4.0
+	github.com/dgraph-io/badger/v4 v4.5.0
 	github.com/gojek/heimdall/v7 v7.0.3
 	github.com/package-url/packageurl-go v0.1.3
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
@@ -38,8 +38,8 @@ require (
 	github.com/smartystreets/assertions v1.2.0 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/net v0.30.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
+	golang.org/x/net v0.31.0 // indirect
+	golang.org/x/sys v0.27.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
