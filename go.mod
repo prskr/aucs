@@ -2,7 +2,7 @@ module github.com/prskr/aucs
 
 go 1.23
 
-toolchain go1.23.3
+toolchain go1.23.4
 
 require (
 	github.com/CycloneDX/cyclonedx-go v0.9.1
