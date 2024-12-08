@@ -8,7 +8,7 @@ require (
 	github.com/CycloneDX/cyclonedx-go v0.9.1
 	github.com/Masterminds/semver/v3 v3.3.1
 	github.com/adrg/xdg v0.5.3
-	github.com/alecthomas/kong v1.4.0
+	github.com/alecthomas/kong v1.6.0
 	github.com/carlmjohnson/requests v0.24.2
 	github.com/dgraph-io/badger/v4 v4.4.0
 	github.com/gojek/heimdall/v7 v7.0.3
