@@ -5,7 +5,7 @@ go 1.23
 toolchain go1.23.3
 
 require (
-	github.com/CycloneDX/cyclonedx-go v0.9.1
+	github.com/CycloneDX/cyclonedx-go v0.9.2
 	github.com/Masterminds/semver/v3 v3.3.1
 	github.com/adrg/xdg v0.5.3
 	github.com/alecthomas/kong v1.4.0
@@ -13,7 +13,7 @@ require (
 	github.com/dgraph-io/badger/v4 v4.4.0
 	github.com/gojek/heimdall/v7 v7.0.3
 	github.com/package-url/packageurl-go v0.1.3
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
