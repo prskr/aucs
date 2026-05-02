@@ -6,7 +6,7 @@ toolchain go1.23.3
 
 require (
 	github.com/CycloneDX/cyclonedx-go v0.9.1
-	github.com/Masterminds/semver/v3 v3.3.1
+	github.com/Masterminds/semver/v3 v3.5.0
 	github.com/adrg/xdg v0.5.3
 	github.com/alecthomas/kong v1.4.0
 	github.com/carlmjohnson/requests v0.24.2
